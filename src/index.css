@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  /* overflow: hidden; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.react-calendar{
+  width: 100% !important;
+}
