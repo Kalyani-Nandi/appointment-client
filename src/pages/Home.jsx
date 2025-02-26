@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const response = await axios.get(process.env.APP_URL + "appointments");
+        const response = await axios.get(process.env.REACT_APP_API_URL + "appointments");
         setAppointments(response.data);
       } catch (error) {
         console.error("Error fetching appointments:", error);

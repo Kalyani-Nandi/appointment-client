@@ -27,7 +27,7 @@ const BookAppointment = () => {
     const fetchAppointment = async () => {
       try {
         const { data } = await axios.get(
-          process.env.APP_URL + `appointments/${encodedDateTime}`
+          process.env.REACT_APP_API_URL + `appointments/${encodedDateTime}`
         );
         setFormData(data || { firstName: "", lastName: "", phoneNumber: "" });
       } catch (err) {
@@ -80,7 +80,7 @@ const BookAppointment = () => {
     if (!encodedDateTime || !validateForm()) return;
 
     try {
-      await axios.post(process.env.APP_URL + "appointments", {
+      await axios.post(process.env.REACT_APP_API_URL + "appointments", {
         timeSlot: encodedDateTime,
         ...formData,
       });
@@ -95,7 +95,7 @@ const BookAppointment = () => {
 
     try {
       await axios.delete(
-        process.env.APP_URL + `appointments/${encodedDateTime}`
+        process.env.REACT_APP_API_URL + `appointments/${encodedDateTime}`
       );
     } catch (err) {
       console.error("Error deleting appointment:", err);
