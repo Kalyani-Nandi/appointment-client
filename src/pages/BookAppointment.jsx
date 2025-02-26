@@ -9,8 +9,9 @@ const BookAppointment = () => {
   const { timeSlot } = useParams();
   const navigate = useNavigate();
 
-  const { date, time, encodedDateTime, duration, fullDateTime } =
-    useSlotDetails(timeSlot, 30);
+  const { date, time, duration, fullDateTime } = useSlotDetails(timeSlot, 30);
+
+  const encodedDateTime = new Date(fullDateTime).toISOString();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -27,7 +28,7 @@ const BookAppointment = () => {
     const fetchAppointment = async () => {
       try {
         const { data } = await axios.get(
-          process.env.REACT_APP_API_URL + `appointments/${encodedDateTime}`
+          `${process.env.REACT_APP_API_URL}appointments/${encodedDateTime}`
         );
         setFormData(data || { firstName: "", lastName: "", phoneNumber: "" });
       } catch (err) {
@@ -80,7 +81,7 @@ const BookAppointment = () => {
     if (!encodedDateTime || !validateForm()) return;
 
     try {
-      await axios.post(process.env.REACT_APP_API_URL + "appointments", {
+      await axios.post(`${process.env.REACT_APP_API_URL}appointments`, {
         timeSlot: encodedDateTime,
         ...formData,
       });
@@ -95,7 +96,7 @@ const BookAppointment = () => {
 
     try {
       await axios.delete(
-        process.env.REACT_APP_API_URL + `appointments/${encodedDateTime}`
+        `${process.env.REACT_APP_API_URL}appointments/${encodedDateTime}`
       );
     } catch (err) {
       console.error("Error deleting appointment:", err);
