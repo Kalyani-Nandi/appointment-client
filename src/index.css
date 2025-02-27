@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  /* overflow: hidden; */
   overflow-y: scroll;
   overflow-x: hidden;
-
 }
 
 code {
@@ -14,4 +12,8 @@ code {
 }
 .react-calendar{
   width: 100% !important;
+}
+
+.PhoneInput input{
+  @apply focus-within:outline-none pl-2;
 }

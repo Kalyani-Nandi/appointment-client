@@ -3,7 +3,6 @@ import axios from "axios";
 import useTimeSlots from "../hooks/useTimeSlots";
 import SlotTimes from "../components/SlotTimes";
 import DateCalendar from "../components/Calendar";
-import { formatISO } from "date-fns";
 
 const Home = () => {
   const [appointments, setAppointments] = useState([]);
@@ -36,7 +35,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row md:items-start items-center justify-between gap-16 p-4 md:p-8 ">
+    <div className="flex flex-col md:flex-row md:items-start items-center justify-between xl:gap-16 gap-6 p-4 md:p-8 ">
       <DateCalendar value={value} onChange={onChange} />
       <div className="w-full md:w-2/3">
         <SlotTimes timeSlots={timeSlots} isBooked={isBooked} />

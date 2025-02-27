@@ -63,7 +63,7 @@ const BookingDetailsForm = ({
             }
             defaultCountry="IN"
             required
-            className="w-full p-2 border rounded focus:outline-none"
+            className="w-full p-2 border rounded"
           />
         </div>
       </div>
